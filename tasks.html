@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TASKLY | Tasks</title>
+s
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">
+            ☑ TASK<span>LY</span>
+        </a>
+
+        <nav>
+            <a href="index.html">⌂ Home</a>
+            <a class="active" href="tasks.html">☷ Tasks</a>
+            <a href="account.html">♙ Account</a>
+            <a href="about.html">ⓘ About</a>
+
+            <button class="theme-btn" aria-label="Toggle theme">
+                🌙 Dark
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="section-head">
+            <div>
+                <h1>My Tasks</h1>
+                <p class="muted">
+                    Add, find, and manage your tasks.
+                </p>
+            </div>
+
+            <button class="btn" id="add-task-btn">
+                ＋ Add Task
+            </button>
+        </div>
+
+        <div class="task-tools">
+            <input
+                id="task-search"
+                class="search"
+                type="search"
+                placeholder="🔍 Search tasks..."
+                aria-label="Search tasks"
+            >
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter-btn" data-filter="pending">
+                    Pending
+                </button>
+
+                <button class="filter-btn" data-filter="completed">
+                    Completed
+                </button>
+            </div>
+        </div>
+
+        <div id="task-list" class="task-list"></div>
+
+        <section class="stats">
+            <div class="stat">
+                <div class="label">Total</div>
+                <div class="number" data-count="total">0</div>
+            </div>
+
+            <div class="stat">
+                <div class="label">Pending</div>
+                <div class="number" data-count="pending">0</div>
+            </div>
+
+            <div class="stat">
+                <div class="label">Completed</div>
+                <div class="number" data-count="completed">0</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        TASKLY · Your tasks stay saved in this browser.
+    </footer>
+</body>
+</html>

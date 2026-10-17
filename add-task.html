@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TASKLY | Add Task</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">
+            ☑ TASK<span>LY</span>
+        </a>
+
+        <nav>
+            <a href="index.html">⌂ Home</a>
+            <a class="active" href="tasks.html">☷ Tasks</a>
+            <a href="account.html">♙ Account</a>
+            <a href="about.html">ⓘ About</a>
+
+            <button class="theme-btn" aria-label="Toggle theme">
+                🌙 Dark
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <form id="task-form" class="form-card">
+            <h1 id="form-heading">Add New Task</h1>
+
+            <p class="muted">
+                Enter a task below. You can edit it later.
+            </p>
+
+            <div class="field">
+                <label for="task-title">Task title *</label>
+                <input
+                    id="task-title"
+                    name="title"
+                    required
+                    maxlength="120"
+                    placeholder="e.g. Finish Web Design Project"
+                >
+            </div>
+
+            <div class="field">
+                <label for="task-due">Due date (optional)</label>
+                <input
+                    id="task-due"
+                    name="due"
+                    type="date"
+                >
+            </div>
+
+            <div class="field">
+                <label>
+                    <input id="task-completed" type="checkbox">
+                    Mark as completed
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn" id="save-task" type="submit">
+                    ＋ Add Task
+                </button>
+
+                <a class="btn secondary" href="tasks.html">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        TASKLY · Small steps, big results.
+    </footer>
+</body>
+</html>

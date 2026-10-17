@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASKLY | Account</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">
+            ☑ TASK<span>LY</span>
+        </a>
+
+        <nav>
+            <a href="index.html">⌂ Home</a>
+            <a href="tasks.html">☷ Tasks</a>
+            <a class="active" href="account.html">♙ Account</a>
+            <a href="about.html">ⓘ About</a>
+
+            <button class="theme-btn" aria-label="Toggle theme">
+                🌙 Dark
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="section-head">
+            <div>
+                <h1>My Account</h1>
+                <p class="muted">
+                    Manage your local profile and preferences.
+                </p>
+            </div>
+        </div>
+
+        <div class="two-col">
+            <section class="panel">
+                <div class="profile-top">
+                    <div class="avatar" id="profile-initials">YN</div>
+
+                    <div>
+                        <h2 id="account-name">Profile</h2>
+                        <p class="muted small">
+                            Your profile is stored on this device.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="profile-form">
+                    <div class="field">
+                        <label for="profile-name">Full name</label>
+                        <input
+                            id="profile-name"
+                            required
+                            maxlength="80"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="profile-email">Email</label>
+                        <input
+                            id="profile-email"
+                            type="email"
+                            required
+                            maxlength="120"
+                        >
+                    </div>
+
+                    <button class="btn" type="submit">
+                        Save Changes
+                    </button>
+
+                    <div id="toast" class="toast" role="status"></div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Preferences</h2>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <strong>🌙 Theme</strong>
+                        <p class="muted small">
+                            Switch between light and dark mode
+                            using the button at the top.
+                        </p>
+
+                        <button
+                            class="btn secondary theme-btn"
+                            type="button"
+                        >
+                            🌙 Dark
+                        </button>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>🔐 Password</strong>
+                        <p class="muted small">
+                            This demo does not use real accounts
+                            or passwords.
+                        </p>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>💾 Data storage</strong>
+                        <p class="muted small">
+                            Tasks and profile details are saved
+                            in your browser's local storage.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        TASKLY · Account settings
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const p = JSON.parse(
+                localStorage.getItem('taskly_profile_v1') || '{}'
+            );
+
+            const h = document.getElementById('account-name');
+
+            if (h) {
+                h.textContent = p.name || 'Your Profile';
+            }
+
+            document
+                .getElementById('profile-form')
+                ?.addEventListener('submit', () => {
+                    setTimeout(() => {
+                        const p = JSON.parse(
+                            localStorage.getItem('taskly_profile_v1') || '{}'
+                        );
+
+                        document.getElementById('account-name').textContent =
+                            p.name || 'Your Profile';
+                    }, 0);
+                });
+        });
+    </script>
+</body>
+</html>
